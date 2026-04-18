@@ -18,7 +18,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.posts,
         name: AppRoutes.postsName,
-        builder: (context, state) => const PostsScreen(),
+        builder: (context, state) => const PostsView(),
       ),
       GoRoute(
         path: AppRoutes.ticket,
@@ -28,8 +28,8 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.history,
         name: AppRoutes.historyName,
-        builder: (context, state) => const HistoryTicketScreen(),
-      )
+        builder: (context, state) => const HistoryTicketsView(),
+      ),
     ],
   );
 }
