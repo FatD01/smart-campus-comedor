@@ -1,5 +1,5 @@
 {
-  "version": "2.9",
+  "version": "2.11",
   "children": [
     {
       "type": "frame",
@@ -220,7 +220,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "./images/generated-1774925077667.png",
+                        "url": "./assets/images/generated-1774925077667.png",
                         "mode": "fill"
                       },
                       "layout": "none"
@@ -2677,7 +2677,7 @@
                   "fill": {
                     "type": "image",
                     "enabled": true,
-                    "url": "./images/generated-1774929899926.png",
+                    "url": "./assets/images/generated-1774929899926.png",
                     "mode": "fill"
                   },
                   "cornerRadius": 40,

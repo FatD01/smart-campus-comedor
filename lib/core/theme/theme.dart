@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_application_1/core/theme/extensions/AppRadiusExtension.dart";
 import "package:flutter_application_1/core/theme/util.dart";
 
 class AppTheme {
@@ -93,12 +94,20 @@ class AppTheme {
       useMaterial3: true,
       brightness: colorScheme.brightness,
       colorScheme: colorScheme,
+
       textTheme: textTheme.apply(
         bodyColor: colorScheme.onSurface,
         displayColor: colorScheme.onSurface,
       ),
       scaffoldBackgroundColor: colorScheme.surface,
       canvasColor: colorScheme.surface,
+
+      extensions: [
+        AppRadiusExtension(xs: 12, s: 16, m: 28, l: 36, xl: 40)
+      ]
+
+
+
     );
   }
 }
