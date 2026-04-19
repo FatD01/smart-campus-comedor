@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/navigation/app_routes.dart';
 import 'package:flutter_application_1/core/theme/extensions/AppRadiusExtension.dart';
+import 'package:flutter_application_1/features/auth/view_models/login_view_model.dart';
 import 'package:flutter_application_1/features/auth/views/widgets/google_button.dart';
-import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -71,10 +71,14 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  GoogleSignInButton(
-                    onPressed: () {
-                      print("Google Sign In");
-                      context.goNamed(AppRoutes.postsName);
+                  Consumer<LoginViewModel>(
+                    builder: (context, vm, _) {
+                      return GoogleSignInButton(
+                        isLoading: vm.isLoading,
+                        onPressed: vm.isLoading
+                            ? () {}
+                            : () => vm.loginWithGoogle(),
+                      );
                     },
                   ),
                 ],
