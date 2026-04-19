@@ -2,8 +2,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/navigation/app_router.dart';
 import 'package:flutter_application_1/core/theme/theme.dart';
+import 'package:flutter_application_1/features/auth/view_models/login_view_model.dart';
+import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(url: 'https://txuztmhbgqexpecxdptx.supabase.co', anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4dXp0bWhiZ3FleHBlY3hkcHR4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY1NzY2NTUsImV4cCI6MjA5MjE1MjY1NX0.ZdRDwWiL2DPe1KX_fWO3aX93Sa-x39BYfrENWt0dpwI");
+  runApp(
+      MultiProvider(
+        providers: [ChangeNotifierProvider(create: (_)=> LoginViewModel())], 
+        child: const MyApp())
+    );
+}
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
