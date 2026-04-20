@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_application_1/core/navigation/app_routes.dart';
-
+import 'package:flutter_application_1/features/auth/data/auth_repository.dart';
+import 'package:flutter_application_1/core/services/storage_service.dart';
 class PostsView extends StatefulWidget {
   const PostsView({super.key});
 
@@ -53,19 +54,25 @@ class _PostsViewState extends State<PostsView> {
             fontFamily: 'Inter',
           ),
         ),
-        Container(
-          width: 32,
-          height: 32,
-          decoration: BoxDecoration(
-            color: colors.surface,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: colors.outlineVariant, width: 1),
-          ),
-          child: Center(
-            child: Icon(
-              Icons.logout_rounded,
-              color: colors.onSurface,
-              size: 16,
+        GestureDetector(
+          onTap: () async {
+            await StorageService().clearAuthData();
+            await AuthRepository().signOut();
+          },
+          child: Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: colors.surface,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: colors.outlineVariant, width: 1),
+            ),
+            child: Center(
+              child: Icon(
+                Icons.logout_rounded,
+                color: colors.onSurface,
+                size: 16,
+              ),
             ),
           ),
         ),
